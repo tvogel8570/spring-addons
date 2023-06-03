@@ -6,7 +6,7 @@
 		<groupId>com.c4-soft.springaddons</groupId>
 		<artifactId>starters</artifactId>
 		<version>6.1.12-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.c4-soft.springaddons.starter</groupId>
 	<artifactId>spring-addons-starters-recaptcha</artifactId>

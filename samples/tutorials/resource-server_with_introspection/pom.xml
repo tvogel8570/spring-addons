@@ -5,7 +5,7 @@
 		<groupId>com.c4-soft.springaddons.samples.tutorials</groupId>
 		<artifactId>tutorials</artifactId>
 		<version>6.1.12-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>resource-server_with_introspection</artifactId>
 	<name>resource-server with access-token introspection</name>

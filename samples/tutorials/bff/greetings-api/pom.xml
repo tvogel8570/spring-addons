@@ -5,7 +5,7 @@
 		<groupId>com.c4-soft.springaddons.samples.tutorials.bff</groupId>
 		<artifactId>bff</artifactId>
 		<version>6.1.12-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>bff-greetings-api</artifactId>
 	<name>BFF greetings API</name>

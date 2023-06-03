@@ -4,7 +4,7 @@
 		<groupId>com.c4-soft.springaddons.samples</groupId>
 		<artifactId>spring-addons-samples</artifactId>
 		<version>6.1.12-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>webflux-introspecting-oauthentication</artifactId>

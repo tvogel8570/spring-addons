@@ -6,7 +6,7 @@
 		<groupId>com.c4-soft.springaddons</groupId>
 		<artifactId>spring-addons</artifactId>
 		<version>6.1.12-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>spring-addons-oauth2-test</artifactId>
 	

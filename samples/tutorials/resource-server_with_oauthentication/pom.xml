@@ -5,7 +5,7 @@
 		<groupId>com.c4-soft.springaddons.samples.tutorials</groupId>
 		<artifactId>tutorials</artifactId>
 		<version>6.1.12-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>resource-server_with_oauthentication</artifactId>
 	<name>resource-server with OAuthentication</name>
