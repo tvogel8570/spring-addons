@@ -1,5 +1,6 @@
 package com.c4soft.springaddons.tutorials;
 
+import java.io.Serial;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
@@ -23,6 +24,7 @@ import org.springframework.security.authentication.AuthenticationManagerResolver
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -62,33 +64,33 @@ public class WebSecurityConfig {
 		http.oauth2ResourceServer(oauth2 -> oauth2.authenticationManagerResolver(authenticationManagerResolver));
 
 		// Enable anonymous
-		http.anonymous();
+		http.anonymous(anonymous->anonymous.authorities("ROLE_ANONYMOUS"));
 
 		// Enable and configure CORS
-		http.cors().configurationSource(corsConfigurationSource(origins));
+		http.cors(cors->cors.configurationSource(corsConfigurationSource(origins)));
 
 		// State-less session (state in access-token only)
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.sessionManagement(sessionManagement->sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 		// Disable CSRF because of state-less session-management
-		http.csrf().disable();
+		http.csrf(AbstractHttpConfigurer::disable);
 
 		// Return 401 (unauthorized) instead of 302 (redirect to login) when
 		// authorization is missing or invalid
-		http.exceptionHandling().authenticationEntryPoint((request, response, authException) -> {
+		http.exceptionHandling(exceptionHandling->exceptionHandling.authenticationEntryPoint((request, response, authException) -> {
 			response.addHeader(HttpHeaders.WWW_AUTHENTICATE, "Basic realm=\"Restricted Content\"");
 			response.sendError(HttpStatus.UNAUTHORIZED.value(), HttpStatus.UNAUTHORIZED.getReasonPhrase());
-		});
+		}));
 
 		// If SSL enabled, disable http (https only)
 		if (serverProperties.getSsl() != null && serverProperties.getSsl().isEnabled()) {
-			http.requiresChannel().anyRequest().requiresSecure();
+			http.requiresChannel(requiresChannel->requiresChannel.anyRequest().requiresSecure());
 		}
 
 		// @formatter:off
-        http.authorizeHttpRequests()
+        http.authorizeHttpRequests(authorizeHttpRequests-> authorizeHttpRequests
             .requestMatchers(permitAll).permitAll()
-            .anyRequest().authenticated();
+            .anyRequest().authenticated());
         // @formatter:on
 
 		return http.build();
@@ -145,6 +147,7 @@ public class WebSecurityConfig {
 		}
 
 		static class MisconfigurationException extends RuntimeException {
+			@Serial
 			private static final long serialVersionUID = 5887967904749547431L;
 
 			public MisconfigurationException(String msg) {
