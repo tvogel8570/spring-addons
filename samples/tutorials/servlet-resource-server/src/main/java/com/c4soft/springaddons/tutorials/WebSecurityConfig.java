@@ -142,6 +142,7 @@ public class WebSecurityConfig {
 		}
 
 		static class MisconfigurationException extends RuntimeException {
+			@Serial
 			private static final long serialVersionUID = 5887967904749547431L;
 
 			public MisconfigurationException(String msg) {
