@@ -11,6 +11,10 @@ server:
   ssl:
     enabled: false
 
+spring:
+  config:
+    import: optional:classpath:env.properties
+
 spring-addons:
   issuers:
   - uri: ${keycloak-issuer}
@@ -34,6 +38,10 @@ keycloak-port: 8443
 server:
   ssl:
     enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:keystore/self_signed.p12
+    key-store-password: ${self.signed.password}
+    key-alias: Tim-AuroraR8
 
 spring:
   config:
