@@ -71,6 +71,6 @@ Thumbs.db
 # secret files
 application-secret.properties
 
-
 **/env.properties
-**/self_signed.*
+**/self_signed*.*
+**/password.txt
