@@ -1,5 +1,6 @@
 package com.c4soft.springaddons.tutorials;
 
+import java.io.Serial;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;

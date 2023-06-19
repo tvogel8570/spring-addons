@@ -4,8 +4,8 @@
 	<parent>
 		<groupId>com.c4-soft.springaddons.samples.tutorials</groupId>
 		<artifactId>tutorials</artifactId>
-		<version>6.1.13-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<version>6.1.12-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>servlet-client</artifactId>
 	<name>servlet-client</name>
